@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MacminiM4BottomView: View {
+  @Bindable var powerState: MacPowerState
+
   private let bodyWidth = 512.0
 
   var body: some View {
@@ -37,7 +39,17 @@ struct MacminiM4BottomView: View {
           .foregroundStyle(Color(white: 0.1))
       }
       .overlay(alignment: .topTrailing) {
-        // Power Button
+        powerButton
+      }
+  }
+
+  @ViewBuilder
+  private var powerButton: some View {
+    Button(
+      action: {
+        powerState.isOn.toggle()
+      },
+      label: {
         Circle()
           .foregroundStyle(Color(white: 0.1))
           .frame(width: bodyWidth / 12)
@@ -47,9 +59,10 @@ struct MacminiM4BottomView: View {
           }
           .padding(bodyWidth / 8)
       }
+    )
   }
 }
 
 #Preview {
-  MacminiM4BottomView()
+  MacminiM4BottomView(powerState: MacPowerState())
 }

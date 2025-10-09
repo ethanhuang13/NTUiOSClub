@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MacminiM4SideView: View {
+  @Bindable var powerState: MacPowerState
+
   private let bodyWidth = 512.0
   private let bodyAspectRatio = 3.0
   private var bodyHeight: Double {
@@ -65,7 +67,7 @@ struct MacminiM4SideView: View {
   @ViewBuilder
   private var powerIndicator: some View {
     Circle()
-      .foregroundStyle(Color.white)
+      .foregroundStyle(Color(white: powerState.isOn ? 1 : 0))
       .frame(height: bodyHeight / 20)
   }
 
@@ -97,5 +99,5 @@ struct MacminiM4SideView: View {
 }
 
 #Preview("Side View") {
-  MacminiM4SideView()
+  MacminiM4SideView(powerState: .init())
 }
