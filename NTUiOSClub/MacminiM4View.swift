@@ -15,6 +15,7 @@ struct MacminiM4View: View {
           anchorZ: -100
         )
         .opacity(viewPoint == .top ? 1 : 0)
+
       MacminiM4SideView(powerState: powerState)
         .rotation3DEffect(
           .degrees(90 - viewPoint.degrees),
@@ -52,34 +53,4 @@ struct MacminiM4View: View {
 
 #Preview {
   MacminiM4View()
-}
-
-enum ViewPoint: CaseIterable {
-  case top
-  case side
-  case bottom
-}
-
-extension ViewPoint {
-  var title: String {
-    switch self {
-    case .top:
-      "Top"
-    case .side:
-      "Side"
-    case .bottom:
-      "Bottom"
-    }
-  }
-
-  var degrees: Double {
-    switch self {
-    case .top:
-      0
-    case .side:
-      90
-    case .bottom:
-      180
-    }
-  }
 }
