@@ -11,14 +11,14 @@ struct MacminiM4SideView: View {
 
   var body: some View {
     VStack(spacing: 0) {
-      topPart
-      bottomPart
+      chassis
+      vent
     }
     .padding()
   }
 
   @ViewBuilder
-  private var topPart: some View {
+  private var chassis: some View {
     Rectangle()
       .foregroundStyle(
         LinearGradient(
@@ -79,7 +79,7 @@ struct MacminiM4SideView: View {
   }
 
   @ViewBuilder
-  private var bottomPart: some View {
+  private var vent: some View {
     Rectangle()
       .rotation3DEffect(.degrees(-60), axis: (x: 1, y: 0, z: 0))
       .foregroundStyle(
