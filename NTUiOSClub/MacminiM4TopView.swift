@@ -22,6 +22,7 @@ struct MacminiM4TopView: View {
           .resizable()
           .aspectRatio(contentMode: .fit)
           .frame(width: bodyWidth / 3.5)
+          .foregroundStyle(Color.black)
       }
       .padding()
   }
