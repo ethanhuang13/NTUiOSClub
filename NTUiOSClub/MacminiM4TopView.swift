@@ -4,7 +4,7 @@ struct MacminiM4TopView: View {
   private let bodyWidth = 512.0
 
   var body: some View {
-    RoundedRectangle(cornerRadius: 128)
+    RoundedRectangle(cornerRadius: bodyWidth / 4)
       .aspectRatio(1, contentMode: .fit)
       .foregroundStyle(
         LinearGradient(
