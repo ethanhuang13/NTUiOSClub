@@ -8,10 +8,7 @@ struct MacminiM4TopView: View {
       .aspectRatio(1, contentMode: .fit)
       .foregroundStyle(
         LinearGradient(
-          colors: [
-            Color(white: 0.9),
-            Color(white: 0.8),
-          ],
+          colors: [Color(white: 0.9), Color(white: 0.8)],
           startPoint: .topTrailing,
           endPoint: .bottomLeading
         )
@@ -24,7 +21,6 @@ struct MacminiM4TopView: View {
           .frame(width: bodyWidth / 3.5)
           .foregroundStyle(Color.black)
       }
-      .padding()
   }
 }
 
