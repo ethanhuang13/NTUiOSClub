@@ -18,7 +18,7 @@ struct MacminiM4TopView: View {
       )
       .frame(width: bodyWidth)
       .overlay {
-        Image(systemName: "applelogo")
+        Image(systemName: "apple.logo")
           .resizable()
           .aspectRatio(contentMode: .fit)
           .frame(width: bodyWidth / 3.5)
