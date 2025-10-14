@@ -23,10 +23,10 @@ struct MacminiM4SideView: View {
       .foregroundStyle(
         LinearGradient(
           stops: [
-            .init(color: Color.black.opacity(0.3), location: 0.0),
-            .init(color: Color.black.opacity(0.1), location: 0.1),
-            .init(color: Color.black.opacity(0.1), location: 0.9),
-            .init(color: Color.black.opacity(0.3), location: 1.0),
+            .init(color: Color(white: 0.7), location: 0.0),
+            .init(color: Color(white: 0.9), location: 0.1),
+            .init(color: Color(white: 0.9), location: 0.9),
+            .init(color: Color(white: 0.7), location: 1.0),
           ],
           startPoint: .leading,
           endPoint: .trailing
@@ -88,7 +88,8 @@ struct MacminiM4SideView: View {
             Array(
               repeating: [Color.black, Color.black.opacity(0.8)],
               count: 32
-            ).flatMap { $0 },
+            )
+            .flatMap { $0 },
           startPoint: .leading,
           endPoint: .trailing
         )

@@ -9,8 +9,8 @@ struct MacminiM4TopView: View {
       .foregroundStyle(
         LinearGradient(
           colors: [
-            Color.black.opacity(0.1),
-            Color.black.opacity(0.2),
+            Color(white: 0.9),
+            Color(white: 0.8),
           ],
           startPoint: .topTrailing,
           endPoint: .bottomLeading
