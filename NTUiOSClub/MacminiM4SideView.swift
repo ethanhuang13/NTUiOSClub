@@ -14,7 +14,6 @@ struct MacminiM4SideView: View {
       chassis
       vent
     }
-    .padding()
   }
 
   @ViewBuilder
