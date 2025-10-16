@@ -80,7 +80,9 @@ struct MacminiM4SideView: View {
   @ViewBuilder
   private var vent: some View {
     Rectangle()
+      .frame(width: bodyWidth * 0.8, height: bodyHeight * 0.2)
       .rotation3DEffect(.degrees(-60), axis: (x: 1, y: 0, z: 0))
+      .offset(y: bodyHeight / -22)
       .foregroundStyle(
         LinearGradient(
           colors:
