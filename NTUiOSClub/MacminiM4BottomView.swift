@@ -9,7 +9,10 @@ struct MacminiM4BottomView: View {
     RoundedRectangle(cornerRadius: bodyWidth / 4)
       .aspectRatio(1, contentMode: .fit)
       .frame(width: bodyWidth)
-      .foregroundStyle(Color(white: 0.2))
+      .foregroundStyle(Color(white: 0.7))
+      .overlay {
+        plasticCover
+      }
       .overlay {
         vents
           .frame(height: bodyWidth * 0.8)
@@ -20,6 +23,15 @@ struct MacminiM4BottomView: View {
       .overlay(alignment: .topTrailing) {
         powerButton
       }
+  }
+
+  @ViewBuilder
+  private var plasticCover: some View {
+    ContainerRelativeShape()
+      .aspectRatio(1, contentMode: .fit)
+      .foregroundStyle(Color(white: 0.2))
+      .padding(bodyWidth / 50)
+      .containerShape(RoundedRectangle(cornerRadius: bodyWidth / 4))
   }
 
   @ViewBuilder
@@ -62,7 +74,7 @@ struct MacminiM4BottomView: View {
             Image(systemName: "power")
               .foregroundStyle(Color.white)
           }
-          .padding(bodyWidth / 8)
+          .padding(bodyWidth / 9)
       }
     )
   }
