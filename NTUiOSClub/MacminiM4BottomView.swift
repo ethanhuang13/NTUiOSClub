@@ -11,36 +11,41 @@ struct MacminiM4BottomView: View {
       .frame(width: bodyWidth)
       .foregroundStyle(Color(white: 0.2))
       .overlay {
-        ZStack {
-          ForEach(0..<128) { tick in
-            VStack {
-              Capsule()
-                .frame(
-                  width: bodyWidth * 0.025 / 2,
-                  height: bodyWidth * 0.05
-                )
-                .foregroundStyle(Color(white: 0.05))
-              Spacer()
-            }
-            .rotationEffect(.degrees(360.0 / 128 * Double(tick)))
-          }
-        }
-        .frame(height: bodyWidth * 0.8)
+        vents
+          .frame(height: bodyWidth * 0.8)
       }
       .overlay {
-        Circle()
-          .foregroundStyle(Color(white: 0.2))
-          .frame(width: bodyWidth * 0.7)
-      }
-      .overlay {
-        Text("Mac mini")
-          .font(.system(size: bodyWidth / 12))
-          .fontWeight(.medium)
-          .foregroundStyle(Color(white: 0.1))
+        macMiniLogo
       }
       .overlay(alignment: .topTrailing) {
         powerButton
       }
+  }
+
+  @ViewBuilder
+  private var vents: some View {
+    ZStack {
+      ForEach(0..<128) { tick in
+        VStack {
+          Capsule()
+            .frame(
+              width: bodyWidth * 0.025 / 2,
+              height: bodyWidth * 0.05
+            )
+            .foregroundStyle(Color(white: 0.05))
+          Spacer()
+        }
+        .rotationEffect(.degrees(360.0 / 128 * Double(tick)))
+      }
+    }
+  }
+
+  @ViewBuilder
+  private var macMiniLogo: some View {
+    Text("Mac mini")
+      .font(.system(size: bodyWidth / 12))
+      .fontWeight(.medium)
+      .foregroundStyle(Color(white: 0.1))
   }
 
   @ViewBuilder
