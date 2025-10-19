@@ -37,7 +37,7 @@ struct MacminiM4BottomView: View {
   @ViewBuilder
   private var vents: some View {
     ZStack {
-      ForEach(0..<128) { tick in
+      ForEach(0..<108) { tick in
         VStack {
           Capsule()
             .frame(
@@ -47,7 +47,7 @@ struct MacminiM4BottomView: View {
             .foregroundStyle(Color(white: 0.05))
           Spacer()
         }
-        .rotationEffect(.degrees(360.0 / 128 * Double(tick)))
+        .rotationEffect(.degrees(360.0 / 108 * Double(tick)))
       }
     }
   }
