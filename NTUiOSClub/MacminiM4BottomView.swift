@@ -6,7 +6,7 @@ struct MacminiM4BottomView: View {
   private let bodyWidth = 512.0
 
   var body: some View {
-    RoundedRectangle(cornerRadius: bodyWidth / 4)
+    chassis
       .aspectRatio(1, contentMode: .fit)
       .frame(width: bodyWidth)
       .foregroundStyle(Color(white: 0.7))
@@ -25,13 +25,17 @@ struct MacminiM4BottomView: View {
       }
   }
 
+  private var chassis: RoundedRectangle {
+    RoundedRectangle(cornerRadius: bodyWidth / 4)
+  }
+
   @ViewBuilder
   private var plasticCover: some View {
     ContainerRelativeShape()
       .aspectRatio(1, contentMode: .fit)
       .foregroundStyle(Color(white: 0.2))
       .padding(bodyWidth / 50)
-      .containerShape(RoundedRectangle(cornerRadius: bodyWidth / 4))
+      .containerShape(chassis)
   }
 
   @ViewBuilder
