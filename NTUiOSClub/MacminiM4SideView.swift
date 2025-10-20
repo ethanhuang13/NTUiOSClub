@@ -3,11 +3,16 @@ import SwiftUI
 struct MacminiM4SideView: View {
   @Bindable var powerState: MacPowerState
 
-  private let bodyWidth = 512.0
   private let bodyAspectRatio = 3.0
-  private var bodyHeight: Double {
-    bodyWidth / bodyAspectRatio
-  }
+  private var bodyHeight: Double { bodyWidth / bodyAspectRatio }
+  private var portSpacing: Double { bodyWidth / 16 }
+  private var overlayOffsetY: Double { bodyHeight / 8 }
+  private var usbCPortHeight: Double { bodyHeight / 5 }
+  private var powerIndicatorSize: Double { bodyHeight / 20 }
+  private var audioPortSize: Double { bodyHeight / 10 }
+  private var ventWidth: Double { bodyWidth * 0.8 }
+  private var ventHeight: Double { bodyHeight * 0.2 }
+  private var ventOffsetY: Double { bodyHeight / -22 }
 
   var body: some View {
     VStack(spacing: 0) {
@@ -36,23 +41,19 @@ struct MacminiM4SideView: View {
       .overlay {
         HStack {
           Spacer()
-
-          HStack(spacing: bodyWidth / 16) {
+          HStack(spacing: portSpacing) {
             usbCPort
             usbCPort
           }
-
           Spacer()
           Spacer()
-
-          HStack(spacing: bodyWidth / 16) {
+          HStack(spacing: portSpacing) {
             powerIndicator
             audioPort
           }
-
           Spacer()
         }
-        .offset(y: bodyHeight / 8)
+        .offset(y: overlayOffsetY)
       }
   }
 
@@ -60,29 +61,29 @@ struct MacminiM4SideView: View {
   private var usbCPort: some View {
     Capsule()
       .aspectRatio(1 / 3.5, contentMode: .fit)
-      .frame(height: bodyHeight / 5)
+      .frame(height: usbCPortHeight)
   }
 
   @ViewBuilder
   private var powerIndicator: some View {
     Circle()
       .foregroundStyle(Color(white: powerState.isOn ? 1 : 0))
-      .frame(height: bodyHeight / 20)
+      .frame(height: powerIndicatorSize)
   }
 
   @ViewBuilder
   private var audioPort: some View {
     Circle()
       .foregroundStyle(Color.black)
-      .frame(height: bodyHeight / 10)
+      .frame(height: audioPortSize)
   }
 
   @ViewBuilder
   private var vent: some View {
     Rectangle()
-      .frame(width: bodyWidth * 0.8, height: bodyHeight * 0.2)
+      .frame(width: ventWidth, height: ventHeight)
       .rotation3DEffect(.degrees(-60), axis: (x: 1, y: 0, z: 0))
-      .offset(y: bodyHeight / -22)
+      .offset(y: ventOffsetY)
       .foregroundStyle(
         LinearGradient(
           colors:
@@ -95,8 +96,6 @@ struct MacminiM4SideView: View {
           endPoint: .trailing
         )
       )
-      .frame(width: bodyWidth * 0.8, height: bodyHeight * 0.2)
-      .offset(y: bodyHeight / -22)
   }
 }
 

@@ -3,7 +3,14 @@ import SwiftUI
 struct MacminiM4BottomView: View {
   @Bindable var powerState: MacPowerState
 
-  private let bodyWidth = 512.0
+  private var cornerRadius: Double { bodyWidth / 4 }
+  private var plasticCoverPadding: Double { bodyWidth / 50 }
+  private var ventTickWidth: Double { bodyWidth * 0.025 / 2 }
+  private var ventTickHeight: Double { bodyWidth * 0.05 }
+  private var logoFontSize: Double { bodyWidth / 12 }
+  private var powerButtonSize: Double { bodyWidth / 12 }
+  private var powerButtonIconSize: Double { bodyWidth / 24 }
+  private var powerButtonPadding: Double { bodyWidth / 9 }
 
   var body: some View {
     chassis
@@ -26,7 +33,7 @@ struct MacminiM4BottomView: View {
   }
 
   private var chassis: RoundedRectangle {
-    RoundedRectangle(cornerRadius: bodyWidth / 4)
+    RoundedRectangle(cornerRadius: cornerRadius)
   }
 
   @ViewBuilder
@@ -34,7 +41,7 @@ struct MacminiM4BottomView: View {
     ContainerRelativeShape()
       .aspectRatio(1, contentMode: .fit)
       .foregroundStyle(Color(white: 0.2))
-      .padding(bodyWidth / 50)
+      .padding(plasticCoverPadding)
       .containerShape(chassis)
   }
 
@@ -45,8 +52,8 @@ struct MacminiM4BottomView: View {
         VStack {
           Capsule()
             .frame(
-              width: bodyWidth * 0.025 / 2,
-              height: bodyWidth * 0.05
+              width: ventTickWidth,
+              height: ventTickHeight
             )
             .foregroundStyle(Color(white: 0.05))
           Spacer()
@@ -59,7 +66,7 @@ struct MacminiM4BottomView: View {
   @ViewBuilder
   private var macMiniLogo: some View {
     Text("Mac mini")
-      .font(.system(size: bodyWidth / 12))
+      .font(.system(size: logoFontSize))
       .fontWeight(.medium)
       .foregroundStyle(Color(white: 0.1))
   }
@@ -73,14 +80,18 @@ struct MacminiM4BottomView: View {
       label: {
         Circle()
           .foregroundStyle(Color(white: 0.1))
-          .frame(width: bodyWidth / 12)
+          .frame(width: powerButtonSize)
           .overlay {
             Image(systemName: "power")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(width: powerButtonIconSize)
               .foregroundStyle(Color.white)
           }
-          .padding(bodyWidth / 9)
+          .padding(powerButtonPadding)
       }
     )
+    .buttonStyle(.plain)
   }
 }
 

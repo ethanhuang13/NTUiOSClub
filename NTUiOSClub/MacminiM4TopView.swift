@@ -1,10 +1,11 @@
 import SwiftUI
 
 struct MacminiM4TopView: View {
-  private let bodyWidth = 512.0
+  private var cornerRadius: Double { bodyWidth / 4 }
+  private var appleLogoSize: Double { bodyWidth / 3.5 }
 
   var body: some View {
-    RoundedRectangle(cornerRadius: bodyWidth / 4)
+    RoundedRectangle(cornerRadius: cornerRadius)
       .aspectRatio(1, contentMode: .fit)
       .foregroundStyle(
         LinearGradient(
@@ -18,7 +19,7 @@ struct MacminiM4TopView: View {
         Image(systemName: "apple.logo")
           .resizable()
           .aspectRatio(contentMode: .fit)
-          .frame(width: bodyWidth / 3.5)
+          .frame(width: appleLogoSize)
           .foregroundStyle(Color.black)
       }
   }

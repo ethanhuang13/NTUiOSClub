@@ -1,5 +1,7 @@
 import SwiftUI
 
+let bodyWidth = 512.0
+
 struct MacminiM4View: View {
   @State private var viewPoint = ViewPoint.top
   @State private var powerState = MacPowerState()
@@ -7,7 +9,6 @@ struct MacminiM4View: View {
   var body: some View {
     ZStack {
       Color.clear
-
       MacminiM4TopView()
         .rotation3DEffect(
           .degrees(viewPoint.degrees),
@@ -15,7 +16,6 @@ struct MacminiM4View: View {
           anchorZ: -100
         )
         .opacity(viewPoint == .top ? 1 : 0)
-
       MacminiM4SideView(powerState: powerState)
         .rotation3DEffect(
           .degrees(90 - viewPoint.degrees),
@@ -23,7 +23,6 @@ struct MacminiM4View: View {
           anchorZ: -100
         )
         .opacity(viewPoint == .side ? 1 : 0)
-
       MacminiM4BottomView(powerState: powerState)
         .rotationEffect(.degrees(180))
         .rotation3DEffect(

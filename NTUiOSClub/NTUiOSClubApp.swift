@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct NTUiOSClubApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      MacminiM4View()
     }
+  }
 }
