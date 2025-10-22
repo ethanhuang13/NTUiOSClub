@@ -99,6 +99,6 @@ struct MacminiM4SideView: View {
   }
 }
 
-#Preview("Side View") {
-  MacminiM4SideView(powerState: .init())
+#Preview {
+  MacminiM4SideView(powerState: MacPowerState())
 }
