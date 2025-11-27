@@ -29,7 +29,10 @@ struct FoodView: View {
 
   func startStreamResponse() {
     Task {
-      let session = LanguageModelSession(instructions: "這是一個關於美食的對話")
+      let session = LanguageModelSession(
+        model: SystemLanguageModel.default,
+        instructions: "這是一個關於美食的對話"
+      )
 
       let stream = session.streamResponse(to: "午餐要吃什麼？我在台大")
       for try await partialResponse in stream {
