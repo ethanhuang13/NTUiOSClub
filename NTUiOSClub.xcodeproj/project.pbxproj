@@ -395,7 +395,7 @@
 			repositoryURL = "https://github.com/mattt/AnyLanguageModel";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.5;
+				minimumVersion = 0.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
