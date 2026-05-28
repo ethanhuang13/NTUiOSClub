@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6C74D6EA2ED8844E000A267B /* AnyLanguageModel in Frameworks */ = {isa = PBXBuildFile; productRef = 6C74D6E92ED8844E000A267B /* AnyLanguageModel */; };
+		6C7B4D332FC74E3B00C7F3F5 /* SampleCode.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B4D322FC74E3B00C7F3F5 /* SampleCode.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C7B4D322FC74E3B00C7F3F5 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SampleCode.xcconfig; sourceTree = "<group>"; };
 		6C923E362E975F4000134B56 /* NTUiOSClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTUiOSClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -44,6 +46,7 @@
 		6C923E2D2E975F4000134B56 = {
 			isa = PBXGroup;
 			children = (
+				6C7B4D322FC74E3B00C7F3F5 /* SampleCode.xcconfig */,
 				6C923E382E975F4000134B56 /* NTUiOSClub */,
 				6C74D6E82ED8844E000A267B /* Frameworks */,
 				6C923E372E975F4000134B56 /* Products */,
@@ -126,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C7B4D332FC74E3B00C7F3F5 /* SampleCode.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +274,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -299,7 +304,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tw.edu.ntu.NTUiOSClub;
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.edu.ntu.NTUiOSClub.${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -322,6 +327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -351,7 +357,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tw.edu.ntu.NTUiOSClub;
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.edu.ntu.NTUiOSClub.${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
