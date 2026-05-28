@@ -11,7 +11,7 @@ import SwiftUI
 struct NTUiOSClubApp: App {
   var body: some Scene {
     WindowGroup {
-      FoodView()
+      FormView()
     }
   }
 }
