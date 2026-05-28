@@ -6,6 +6,7 @@ import SwiftUI
 #Playground("美食") {
   let session = LanguageModelSession(instructions: "這是一個關於美食的對話")
   let response = try await session.respond(to: "午餐要吃什麼？我在台大")
+  print(response)
 }
 
 // MARK: Streaming Responses
