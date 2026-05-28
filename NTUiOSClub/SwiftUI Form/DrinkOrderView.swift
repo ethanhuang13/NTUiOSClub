@@ -10,6 +10,26 @@ struct FormView: View {
   var body: some View {
     NavigationStack {
       Form {
+        Section("快速輸入") {
+          TextEditor(text: $viewModel.prompt)
+
+          Button {
+            viewModel.generate()
+          } label: {
+            if viewModel.isGenerating {
+              ProgressView()
+                .progressViewStyle(.circular)
+            } else {
+              Text("根據文字，生成表單")
+            }
+          }
+          .disabled(viewModel.prompt.isEmpty)
+        }
+
+        Section("訂單摘要") {
+          orderSummaryText
+        }
+
         Section("點餐人") {
           nameTextField
         }
@@ -35,10 +55,6 @@ struct FormView: View {
 
         Section("取餐時間") {
           pickupTimePicker
-        }
-
-        Section("訂單摘要") {
-          orderSummaryText
         }
       }
       .navigationTitle("點飲料表單")

@@ -1,7 +1,10 @@
 import Foundation
+import FoundationModels
 
 @Observable
 class DrinkOrderViewModel {
+  var prompt = ""
+  var isGenerating = false
   var customerName = ""
   var sweetness: Sweetness = .halfSugar
   var iceLevel = 0.5
@@ -10,6 +13,7 @@ class DrinkOrderViewModel {
   var cupCount = 1
   var pickupTime = Date.now.addingTimeInterval(30 * 60)
 
+  @Generable(description: "甜度")
   enum Sweetness: String, CaseIterable, Identifiable {
     case noSugar = "無糖"
     case lessSugar = "微糖"
@@ -54,6 +58,7 @@ class DrinkOrderViewModel {
     }
   }
 
+  @Generable(description: "冰塊量")
   enum IceLevelOption: String, CaseIterable, Identifiable {
     case noIce = "去冰"
     case lessIce = "微冰"
@@ -94,6 +99,7 @@ class DrinkOrderViewModel {
     }
   }
 
+  @Generable(description: "飲料杯大小。比大杯還大的是特大杯")
   enum DrinkSize: String, CaseIterable, Identifiable {
     case small = "小杯"
     case medium = "中杯"
