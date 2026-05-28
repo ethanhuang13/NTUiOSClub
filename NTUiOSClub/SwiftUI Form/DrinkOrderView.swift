@@ -48,89 +48,98 @@ struct FormView: View {
 
   @ViewBuilder
   private var nameTextField: some View {
-    TextField("輸入姓名", text: $viewModel.customerName)
-      .textInputAutocapitalization(.words)
+    EmptyView()
+//    TextField("輸入姓名", text: $viewModel.customerName)
+//      .textInputAutocapitalization(.words)
   }
 
   @ViewBuilder
   private var sweetnessPicker: some View {
-    Picker("甜度", selection: $viewModel.sweetness) {
-      ForEach(DrinkOrderViewModel.Sweetness.allCases) { sweetness in
-        Text(sweetness.rawValue).tag(sweetness)
-      }
-    }
-    .pickerStyle(.menu)  // 可以換成別的
+    EmptyView()
+//    Picker("甜度", selection: $viewModel.sweetness) {
+//      ForEach(DrinkOrderViewModel.Sweetness.allCases) { sweetness in
+//        Text(sweetness.rawValue).tag(sweetness)
+//      }
+//    }
+//    .pickerStyle(.menu)  // 可以換成別的
   }
 
   @ViewBuilder
   private var sweetnessSlider: some View {
-    Slider(
-      value: Binding(
-        get: { viewModel.sweetnessSliderValue },
-        set: { viewModel.sweetnessSliderValue = $0 }
-      ),
-      in: 0...1.0,
-      step: 0.25
-    )
+    EmptyView()
+//    Slider(
+//      value: Binding(
+//        get: { viewModel.sweetnessSliderValue },
+//        set: { viewModel.sweetnessSliderValue = $0 }
+//      ),
+//      in: 0...1.0,
+//      step: 0.25
+//    )
   }
 
   @ViewBuilder
   private var iceLevelPicker: some View {
-    Picker(
-      "冰塊",
-      selection: Binding(
-        get: { viewModel.iceOption },
-        set: { viewModel.iceOption = $0 }
-      )
-    ) {
-      ForEach(DrinkOrderViewModel.IceLevelOption.allCases) { iceOption in
-        Text(iceOption.rawValue).tag(iceOption)
-      }
-    }
-    .pickerStyle(.navigationLink)  // 可以換成別的
+    EmptyView()
+//    Picker(
+//      "冰塊",
+//      selection: Binding(
+//        get: { viewModel.iceOption },
+//        set: { viewModel.iceOption = $0 }
+//      )
+//    ) {
+//      ForEach(DrinkOrderViewModel.IceLevelOption.allCases) { iceOption in
+//        Text(iceOption.rawValue).tag(iceOption)
+//      }
+//    }
+//    .pickerStyle(.navigationLink)  // 可以換成別的
   }
 
   @ViewBuilder
   private var iceLevelSlider: some View {
-    Slider(
-      value: $viewModel.iceLevel,
-      in: 0...1.0,
-      step: 0.25
-    )
+    EmptyView()
+//    Slider(
+//      value: $viewModel.iceLevel,
+//      in: 0...1.0,
+//      step: 0.25
+//    )
   }
 
   @ViewBuilder
   private var wantsBobaToggle: some View {
-    Toggle("加珍珠", isOn: $viewModel.wantsBoba)
+    EmptyView()
+//    Toggle("加珍珠", isOn: $viewModel.wantsBoba)
   }
 
   @ViewBuilder
   private var sizePicker: some View {
-    Picker("杯型", selection: $viewModel.size) {
-      ForEach(DrinkOrderViewModel.DrinkSize.allCases) { size in
-        Text(size.rawValue).tag(size)
-      }
-    }
-    .pickerStyle(.segmented)
+    EmptyView()
+//    Picker("杯型", selection: $viewModel.size) {
+//      ForEach(DrinkOrderViewModel.DrinkSize.allCases) { size in
+//        Text(size.rawValue).tag(size)
+//      }
+//    }
+//    .pickerStyle(.segmented)
   }
 
   @ViewBuilder
   private var cupCountStepper: some View {
-    Stepper(
-      "杯數：\(viewModel.cupCount)",
-      value: $viewModel.cupCount,
-      in: 1...13
-    )
+    EmptyView()
+//    Stepper(
+//      "杯數：\(viewModel.cupCount)",
+//      value: $viewModel.cupCount,
+//      in: 1...13
+//    )
   }
 
   @ViewBuilder
   private var pickupTimePicker: some View {
-    DatePicker(
-      "預計取餐",
-      selection: $viewModel.pickupTime,
-      in: Date.now...,
-      displayedComponents: [.date, .hourAndMinute]
-    )
+    EmptyView()
+//    DatePicker(
+//      "預計取餐",
+//      selection: $viewModel.pickupTime,
+//      in: Date.now...,
+//      displayedComponents: [.date, .hourAndMinute]
+//    )
   }
 
   @ViewBuilder

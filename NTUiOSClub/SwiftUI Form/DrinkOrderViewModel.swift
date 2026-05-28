@@ -10,15 +10,6 @@ class DrinkOrderViewModel {
   var cupCount = 1
   var pickupTime = Date.now.addingTimeInterval(30 * 60)
 
-  enum DrinkSize: String, CaseIterable, Identifiable {
-    case small = "小杯"
-    case medium = "中杯"
-    case large = "大杯"
-    case extraLarge = "特大杯"
-
-    var id: Self { self }
-  }
-
   enum Sweetness: String, CaseIterable, Identifiable {
     case noSugar = "無糖"
     case lessSugar = "微糖"
@@ -101,5 +92,14 @@ class DrinkOrderViewModel {
         .extraIce
       }
     }
+  }
+
+  enum DrinkSize: String, CaseIterable, Identifiable {
+    case small = "小杯"
+    case medium = "中杯"
+    case large = "大杯"
+    case extraLarge = "特大杯"
+
+    var id: Self { self }
   }
 }
